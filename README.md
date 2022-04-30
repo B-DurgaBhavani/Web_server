@@ -2,7 +2,6 @@
 
 * Operating System: MacOS or Linux
 * [Node.js](https://nodejs.org/) (I recommend installing with [NVM](https://github.com/nvm-sh/nvm))
-* [Homebrew](https://brew.sh) (to install MongoDB)
 
 ## Quick Start
 
@@ -10,22 +9,23 @@
 
 ```bash
 npm install
-
-# Install MongoDB
-brew tap mongodb/brew
-brew install mongodb-community
+It downloads and install a package and its dependencies, these aee defiend in package. json file and generates a node_modules folder
 ```
 
-Start the database
+#### for Development
+
+Start the client
 ```bash
-brew services start mongodb-community
+npm run start
+
+Its is used to execute the defined file in it without typing its execution command.
 ```
 
-#### for Development and Production
+#### for Production
 
-Start the server
 ```bash
-npm start
+npm run build
+npm run build creates a build directory with a production build of your app. Set up your favorite HTTP server so that a visitor to your site is served index. html , and requests to static paths like /static/js/main.
 ```
 
 #### Other Commands
@@ -34,8 +34,9 @@ npm start
 npm test
 npm run lint
 npm run lint:fix
+npm run test:coverage
 npm run test:verbose
-npm run test:watch
+npm run test:watcc
 ```
 
 ## Setup Instructions
@@ -48,6 +49,7 @@ You will need to update the content in these files to names of your project and 
 
 * package.json: name, version, description, repository, author, bugs, homepage
 * LICENSE: (update to your preferred license)
+* client/index.html: description and title
 * this README.md
 
 This is also a good time to go through the included libraries to add or remove features that you want.
@@ -58,26 +60,60 @@ You can now start updating files in your client to begin working on your own pro
 ## Code Structure
 
 ```
-- server
-  - passport
-  - database
-  - routes
+- client
+  - api
+  - assets
+    - images
+    - icons
+  - components
+    - atoms
+    - molecules
+    - organisms
+    - templates
+    - pages
+    - environment
+  - hooks
+  - store
+    - actions
+    - reducers
+    - thunks
+    - tests
+  - styles
+  - utils
 - config
 - scripts
 ```
 
+Component Heirarchy:
+
+Environment > Pages > Templates > Organisms > Molecules > Atoms
+
+This is based on atomic design. Learn more about [atomic design](http://bradfrost.com/blog/post/atomic-web-design/).
+
 ## Technologies
 
-[Express](http://expressjs.com/) - Node Application Framework
+[React](https://facebook.github.io/react/) - View Library
 
-[MongoDB](https://www.mongodb.com/) - Document Database
+[Redux](http://redux.js.org/) - State Manager
 
-[Mongoose](http://mongoosejs.com/) - MongoDB Framework
+[Webpack](https://webpack.github.io/) - Module Bundler
 
-[Passport](http://www.passportjs.org/) - Authentication Framework
+[React Notifications Component](https://teodosii.github.io/react-notifications-component/) - Notification System
+
+[Bulma](http://bulma.io/) - CSS Framework
+
+[React Bulma Companion](https://github.com/djizco/react-bulma-companion) - Bulma Component Library
+
+[FontAwesome](http://fontawesome.io/) - Icons
 
 [Ramda](http://ramdajs.com/) - Functional Library
+
+[date-fns](https://date-fns.org/) - Date Functions Library
+
+[SuperAgent](https://github.com/visionmedia/superagent) - HTTP Request Library
 
 [ESLint](http://eslint.org/) - Code Linter
 
 [Jest](https://jestjs.io/) - Testing Framework
+
+[Enzyme](https://airbnb.io/enzyme/) - React View Testing
